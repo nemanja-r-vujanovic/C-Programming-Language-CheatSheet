@@ -6,7 +6,7 @@
 // sleep (Linux, macOS):
 #include <unistd.h>
 
-// Preprocessor constants strings:
+// Preprocessor constant strings:
 #define RESET "\x1b[0m"
 #define CLEAR "\x1b[2J"
 #define HOME  "\x1b[H"

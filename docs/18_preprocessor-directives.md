@@ -9,7 +9,7 @@
 // Preprocessor constant double:
 #define PI 3.14159
 
-void sayHello(void);
+void say_hello(void);
 
 #endif
 ```
@@ -54,7 +54,7 @@ void sayHello(void);
 int main(void)
 {
 	// Custom header function:
-	sayHello();
+	say_hello();
 
 	// ------------------------------------------------------------
 
@@ -93,7 +93,7 @@ int main(void)
 	return 0;
 }
 
-void sayHello(void)
+void say_hello(void)
 {
 	printf("Hello from myheader.h!\n");
 }

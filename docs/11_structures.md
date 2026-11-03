@@ -6,13 +6,14 @@
 // size_t:
 #include <stddef.h>
 
+// Structure:
 typedef struct Student
 {
 	char name[20 + 1];
 	int number;
 } Student;
 
-// Nested struct:
+// Nested structure:
 typedef struct Classroom
 {
 	char name[13 + 1];
@@ -21,6 +22,7 @@ typedef struct Classroom
 
 int main(void)
 {
+	// Structures: ↓
 	Student s1 = {"Nemanja", 3,};
 	printf("%s %d\n", s1.name, s1.number);
 
@@ -30,7 +32,7 @@ int main(void)
 
 	// ------------------------------------------------------------
 
-	// Array of structs:
+	// Array of structures:
 	Student students[] = {s1, s2,};
 
 	size_t students_size = sizeof(students) / sizeof(students[0]);
@@ -42,6 +44,7 @@ int main(void)
 
 	// ------------------------------------------------------------
 
+	// Nested structure:
 	Classroom c1 = {"C Programming", s1,};
 
 	printf("%s\n", c1.name);
