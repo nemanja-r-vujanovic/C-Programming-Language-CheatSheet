@@ -1,4 +1,4 @@
-## 18. Preprocessor directives
+## 18. Preprocessor Directives
 ```c
 // File "myheader.h"
 
