@@ -18,8 +18,7 @@ int main(void)
 	}
 
 	// label:
-	label:
-		printf("Jump.\n");
+		// printf("Jump.\n");
 
 	// do-while:
 	// do
@@ -27,6 +26,8 @@ int main(void)
 		// printf("Done.\n");
 	// }
 	// while (0);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
