@@ -21,8 +21,6 @@ int main(void)
 		return 1;
 	}
 
-	printf("\n");
-
 	// ------------------------------------------------------------
 
 	// Allocate memory for an array of 10 integers (zero-initialized):
@@ -35,8 +33,6 @@ int main(void)
 		free(ptr1);
 		return 1;
 	}
-
-	printf("\n");
 
 	// ------------------------------------------------------------
 
@@ -54,8 +50,6 @@ int main(void)
 
 	// temp and ptr1 now point to the same memory:
 	ptr1 = temp;
-
-	printf("\n");
 
 	// ------------------------------------------------------------
 
