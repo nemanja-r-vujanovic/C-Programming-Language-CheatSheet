@@ -68,6 +68,7 @@ int main(void)
 	printf("Bool: %d\n", b);
 	printf("Int: %d\n", i);
 	printf("Int: %9d\n", i);
+	printf("Int: %-9d\n", i);
 	printf("Global variable: %d\n", global_number);
 	printf("Unsigned int: %u\n", ui);
 	printf("Octal: %o\n", ui);
