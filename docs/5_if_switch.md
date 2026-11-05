@@ -17,10 +17,10 @@ int main(void)
 	// Increment: i++ or ++i (i += 1)
 	// Decrement: i-- or --i (i -= 1)
 
+	char s[13 + 1] = {'\0',};
 	int i = -100;
 
 	// Ternary if_else:
-	char s[13 + 1] = {'\0',};
 	strcpy(s, (i <= -1) ? "Negative." : "Not negative.");
 	printf("%s\n", s);
 
