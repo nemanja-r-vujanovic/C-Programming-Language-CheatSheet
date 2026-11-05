@@ -13,7 +13,7 @@ comment.
 int main(void)
 {
 	printf("Hello world!\n");
-	// puts("Hello world!");
+	puts("Hello world!");
 
 	return 0;
 }
