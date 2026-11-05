@@ -135,11 +135,11 @@ void string_reversed(char s[])
 	size_t s_length = strlen(s);
 	char temp[s_length + 1];
 
-	unsigned int j = 0;
+	unsigned int j = 0U;
 	for (int i = s_length - 1; i >= 0; i -= 1)
 	{
 		temp[j] = s[i];
-		j += 1;
+		j += 1U;
 	}
 
 	temp[s_length] = '\0';
