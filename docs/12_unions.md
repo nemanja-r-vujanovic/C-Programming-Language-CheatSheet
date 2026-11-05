@@ -3,11 +3,14 @@
 // printf:
 #include <stdio.h>
 
+// strcpy:
+#include <string.h>
+
 typedef union Data
 {
 	int i;
 	double d;
-	const char *s;
+	char s[6 + 1];
 } Data;
 
 int main(void)
@@ -20,7 +23,7 @@ int main(void)
 	data.d = 9.9;
 	printf("Double: %.2lf\n", data.d);
 
-	data.s = "Hello!";
+	strcpy(data.s, "Hello!");
 	printf("String: %s\n", data.s);
 
 	return 0;
