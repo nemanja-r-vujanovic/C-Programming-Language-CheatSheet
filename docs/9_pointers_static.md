@@ -16,8 +16,16 @@ int main(void)
 	// Modify value:
 	*ptr1 = 20;
 
-	printf("Address: %p\n", ptr1);
+	// Modify address:
+	// ptr1 = &var;
+
 	printf("Value: %d\n", *ptr1);
+	// printf("Value: %d\n", var);
+
+	printf("Address: %p\n", ptr1);
+	// printf("Address: %p\n", &var);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
@@ -39,6 +47,8 @@ int main(void)
 	// Access the next element without changing the pointer:
 	int element = *(ptr2 + 1);
 	printf("%d\n", element);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
