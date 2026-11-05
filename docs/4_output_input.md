@@ -32,7 +32,7 @@ int main(void)
 	bool b = 0;
 	int ib = 0;
 	int i = 0;
-	unsigned int ui = 0;
+	unsigned int ui = 0U;
 	float f = 0.0f;
 	double d = 0.0;
 	char s[100 + 1];
