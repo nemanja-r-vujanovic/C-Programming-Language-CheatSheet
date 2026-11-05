@@ -68,7 +68,7 @@ int main(void)
 	// Length 5:
 	printf("Length %zu\n", strlen(str2));
 
-	// Size 101:
+	// Size 6:
 	printf("Size %zu\n", sizeof(str1));
 
 	// Size 6:

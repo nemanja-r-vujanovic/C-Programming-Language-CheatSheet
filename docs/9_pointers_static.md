@@ -34,7 +34,8 @@ int main(void)
 
 	// ptr2 points to arr[0]:
 	int *ptr2 = arr;
-	printf("%d\n", *ptr2);
+	printf("Value: %d\n", *ptr2);
+	printf("Address: %p\n", ptr2);
 
 	// Change pointer to the next element:
 	ptr2 += 1;

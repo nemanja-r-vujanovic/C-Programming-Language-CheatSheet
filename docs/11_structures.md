@@ -9,7 +9,7 @@
 // Structure:
 typedef struct Student
 {
-	char name[20 + 1];
+	char name[8 + 1];
 	int number;
 } Student;
 
