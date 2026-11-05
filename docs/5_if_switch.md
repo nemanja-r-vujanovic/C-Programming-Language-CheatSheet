@@ -3,6 +3,9 @@
 // printf:
 #include <stdio.h>
 
+// strcpy:
+#include <string.h>
+
 int main(void)
 {
 	// Assignment: =, +=, -=, *=, /=, %=, &=, |=, ^=, >>=, <<=
@@ -17,8 +20,11 @@ int main(void)
 	int i = -100;
 
 	// Ternary if_else:
-	const char *s = (i <= -1) ? "Negative." : "Not negative.";
+	char s[13 + 1] = {'\0',};
+	strcpy(s, (i <= -1) ? "Negative." : "Not negative.");
 	printf("%s\n", s);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
@@ -63,6 +69,8 @@ int main(void)
 			printf("You can enter the club.\n");
 		}
 	}
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
