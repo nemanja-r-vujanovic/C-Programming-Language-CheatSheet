@@ -49,13 +49,17 @@ int main(void)
 
 	array_sorted(array, array_size, 'A');
 	print_array(array, array_size);
+
 	array_sorted(array, array_size, 'D');
 	print_array(array, array_size);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
 	// String functions: ↓
-	char str1[100 + 1] = "Hello";
+	// Enough space for strcpy:
+	char str1[5 + 1] = "Hello";
 	char str2[] = "World";
 
 	// Length 5:
@@ -71,24 +75,24 @@ int main(void)
 	printf("Size %zu\n", sizeof(str2));
 
 	// Compare:
-	const char *s = (strcmp(str1, str2) == 0) ? "Equal." : "Not equal.";
-	printf("%s\n", s);
+	if (strcmp(str1, str2) == 0)
+	{
+		printf("Equal.");
+	}
 
-	// Copy:
-	strcpy(str1, "Hi");
-
-	// Concatenate:
-	strcat(str1, str2);
+	// Copy (overwrite):
+	strcpy(str1, "!");
 
 	// Other functions:
-	// strncpy(dest, src, n);
-	// strncat(dest, src, n);
-	// strncmp(str1, str2, n);
+	// strcat(str1, str2);
 	// strchr(str, 'A');
 	// strrchr(str, 'A');
 	// strstr(str, "sub");
 	// strtok(str, ", ");
 	// strcspn(str, ", ");
+	// strncpy(dest, src, n);
+	// strncat(dest, src, n);
+	// strncmp(str1, str2, n);
 	// ...
 
 	return 0;
@@ -133,7 +137,7 @@ void string_lower(char s[])
 void string_reversed(char s[])
 {
 	size_t s_length = strlen(s);
-	char temp[s_length + 1];
+	char temp[s_length + 1] = {'\0',};
 
 	unsigned int j = 0U;
 	for (int i = s_length - 1; i >= 0; i -= 1)
@@ -183,7 +187,7 @@ void print_array(int d[], size_t d_size)
 void convert_case(char s[], char c)
 {
 	size_t s_length = strlen(s);
-	char temp[s_length + 1];
+	char temp[s_length + 1] = {'\0',};
 
 	for (int i = 0; i <= s_length - 1; i += 1)
 	{
