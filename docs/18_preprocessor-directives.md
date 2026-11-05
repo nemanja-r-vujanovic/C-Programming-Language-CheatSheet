@@ -6,9 +6,6 @@
 #ifndef MYHEADER_H
 #define MYHEADER_H
 
-// Preprocessor constant double:
-#define PI 3.14159
-
 void say_hello(void);
 
 #endif
@@ -56,6 +53,8 @@ int main(void)
 	// Custom header function:
 	say_hello();
 
+	printf("\n");
+
 	// ------------------------------------------------------------
 
 	int a = 5;
@@ -65,10 +64,14 @@ int main(void)
 	printf("Square: %d\n", SQUARE(a));
 	printf("Maximum: %d\n", MAX(a, b));
 
+	printf("\n");
+
 	// ------------------------------------------------------------
 
 	// Using PI:
 	printf("PI: %.5lf\n", PI);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
@@ -76,6 +79,8 @@ int main(void)
 	printf("Message: %s\n", MESSAGE);
 	printf("Buffer: %d\n", BUFFER_SIZE);
 	printf("Status: %s\n", STATUS);
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
