@@ -30,6 +30,8 @@ int main(void)
 	Student *ptr = &s2;
 	printf("%s %d\n", ptr -> name, ptr -> number);
 
+	printf("\n");
+
 	// ------------------------------------------------------------
 
 	// Array of structures:
@@ -41,6 +43,8 @@ int main(void)
 	{
 		printf("%s %d\n", students[i].name, students[i].number);
 	}
+
+	printf("\n");
 
 	// ------------------------------------------------------------
 
