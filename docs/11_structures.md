@@ -30,6 +30,9 @@ int main(void)
 	Student *ptr = &s2;
 	printf("%s %d\n", ptr -> name, ptr -> number);
 
+	// Size of structure:
+	printf("Size: %zu bytes\n", sizeof(Student));
+
 	printf("\n");
 
 	// ------------------------------------------------------------
