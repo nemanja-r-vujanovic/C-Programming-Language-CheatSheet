@@ -6,7 +6,7 @@
 // String functions:
 #include <string.h>
 
-// toupper, tolower:
+// Ctype functions:
 #include <ctype.h>
 
 // size_t:
@@ -83,7 +83,7 @@ int main(void)
 	// Copy (overwrite):
 	strcpy(str1, "!");
 
-	// Other functions:
+	// Other string functions:
 	// strcat(str1, str2);
 	// strchr(str, 'A');
 	// strrchr(str, 'A');
@@ -203,6 +203,20 @@ void convert_case(char s[], char c)
 
 	temp[s_length] = '\0';
 	printf("%s\n", temp);
+
+	// Other ctype functions:
+	// isalnum()
+	// isalpha()
+	// isdigit()
+	// isxdigit()
+	// isblank()
+	// isspace()
+	// iscntrl()
+	// isgraph()
+	// isprint()
+	// ispunct()
+	// isupper()
+	// islower()
 }
 
 void swap_array(int d[], int j)
