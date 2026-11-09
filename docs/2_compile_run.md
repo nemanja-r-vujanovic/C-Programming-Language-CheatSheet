@@ -6,6 +6,9 @@ gcc -Wall -Wextra -Wpedantic -fno-builtin "code.c" -o "program_c"
 # Run:
 ./"program_c"
 
+# C to Assembly:
+# gcc -Wall -Wextra -Wpedantic -fno-builtin -S -masm=intel "code.c" -o "program_c"
+
 # #include <math.h>:
 # gcc -Wall -Wextra -Wpedantic -fno-builtin "code.c" -o "program_c" -lm
 
