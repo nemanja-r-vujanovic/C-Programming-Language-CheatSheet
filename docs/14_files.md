@@ -1,10 +1,13 @@
 ## 14. Files
 ```c
-// printf, FILE, fopen, fclose, fprintf, fgets, EOF:
+// printf, FILE, fopen, fclose, fprintf, fgets, EOF, remove:
 #include <stdio.h>
 
 // NULL:
 #include <stddef.h>
+
+// exit:
+#include <stdlib.h>
 
 int main(void)
 {
@@ -64,12 +67,20 @@ int main(void)
 	{
 		printf("%s", text);
 	}
-	printf("\n");
 
 	if (fclose(fp) == EOF)
 	{
 		printf("Error closing file!\n");
 		return 1;
+	}
+
+	// ------------------------------------------------------------
+
+	// File remove: ↓
+	if (remove("example.txt") != 0)
+	{
+		printf("Error removing file!\n");
+		exit(1);
 	}
 
 	return 0;
