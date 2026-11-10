@@ -3,18 +3,25 @@
 // printf:
 #include <stdio.h>
 
+// va_list, va_start, va_arg, va_end:
+#include <stdarg.h>
+
 // String functions:
 #include <string.h>
 
 // Ctype functions:
 #include <ctype.h>
 
-// size_t:
+// size_t, NULL:
 #include <stddef.h>
+
+// atoi, strtof, strtod:
+#include <stdlib.h>
 
 // Function declaration:
 int calculate_sum(int a, int b);
 int calculate_factorial(int n);
+void variadic_sum(int n, ...);
 void swap_numbers(int *a, int *b);
 void string_upper(char s[]);
 void string_lower(char s[]);
@@ -32,6 +39,9 @@ int main(void)
 
 	int fac = calculate_factorial(10);
 	printf("%d\n", fac);
+
+	variadic_sum(3, 1.5, 2.5, 6.5);
+	variadic_sum(4, 1.5, 2.5, 6.5, 9.5);
 
 	int x = 10;
 	int y = 20;
@@ -95,6 +105,29 @@ int main(void)
 	// strncmp(str1, str2, n);
 	// ...
 
+	int i = 0;
+	float f = 0.0f;
+	double d = 0.0;
+	char s[15 + 1];
+
+	// Convert string to integer:
+	i = atoi("12345");
+
+	// Convert string to float:
+	f = strtof("12345", NULL);
+
+	// Convert string to double:
+	d = strtod("12345", NULL);
+
+	// Convert non-string to string:
+	size_t s_length = snprintf(s, sizeof(s), "Hello world%c x%d", '!', 3);
+
+	printf("%d\n", i);
+	printf("%f\n", f);
+	printf("%lf\n", d);
+	printf("%s\n", s);
+	printf("%zu\n", s_length);
+
 	return 0;
 }
 
@@ -117,6 +150,25 @@ int calculate_factorial(int n)
 	return n * calculate_factorial(n - 1);
 }
 
+// Variadic function:
+void variadic_sum(int n, ...)
+{
+	va_list args;
+	va_start(args, n);
+
+	double sum = 0.0;
+
+	for (int i = 0; i <= n - 1; i += 1)
+	{
+		double d = va_arg(args, double);
+		sum += d;
+	}
+
+	va_end(args);
+
+	printf("Sum: %lf\n", sum);
+}
+
 void swap_numbers(int *a, int *b)
 {
 	int temp = *a;
@@ -137,7 +189,7 @@ void string_lower(char s[])
 void string_reversed(char s[])
 {
 	size_t s_length = strlen(s);
-	char temp[s_length + 1] = {'\0',};
+	char temp[s_length + 1];
 
 	unsigned int j = 0U;
 	for (int i = s_length - 1; i >= 0; i -= 1)
@@ -187,7 +239,7 @@ void print_array(int d[], size_t d_size)
 void convert_case(char s[], char c)
 {
 	size_t s_length = strlen(s);
-	char temp[s_length + 1] = {'\0',};
+	char temp[s_length + 1];
 
 	for (int i = 0; i <= s_length - 1; i += 1)
 	{
@@ -217,6 +269,7 @@ void convert_case(char s[], char c)
 	// ispunct()
 	// isupper()
 	// islower()
+	// ...
 }
 
 void swap_array(int d[], int j)
