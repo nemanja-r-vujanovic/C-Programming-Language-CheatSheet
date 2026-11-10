@@ -38,7 +38,7 @@ int main(void)
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
 
-	printf("Both threads finished!\n");
+	printf("Both threads finished\n");
 
 	return 0;
 }

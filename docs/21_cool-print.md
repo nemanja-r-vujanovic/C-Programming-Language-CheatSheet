@@ -127,7 +127,7 @@ void color_combinations(void)
 	printf("\n------ COLOR COMBINATIONS ------\n");
 
 	// Bold + blink + red background + white text:
-	printf("\x1b[1;5;41;37m WARNING! \x1b[0m\n");
+	printf("\x1b[1;5;41;37m WARNING \x1b[0m\n");
 
 	// Bold + green background + black text:
 	printf("\x1b[1;42;30m SUCCESS \x1b[0m\n");
@@ -174,7 +174,7 @@ void terminal_controls(void)
 
 	// Save cursor position:
 	printf("\x1b[s");
-	printf("Cursor position saved!\n");
+	printf("Cursor position saved\n");
 	sleep(1);
 
 	// Restore cursor position:
@@ -217,7 +217,7 @@ int main(void)
 	printf("\n");
 	printf("\x1b[1;32m");
 	printf("------------------------------------------------------------\n");
-	printf("      DEMONSTRATION COMPLETE!      \n");
+	printf("      DEMONSTRATION COMPLETE      \n");
 	printf("------------------------------------------------------------\n");
 	printf("\x1b[0m");
 

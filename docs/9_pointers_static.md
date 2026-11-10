@@ -10,7 +10,7 @@ int main(void)
 	// Pointers with variables: ↓
 	int var = 10;
 
-	// Pointer variable:
+	// Pointer to variable:
 	int *ptr1 = &var;
 
 	// Modify value:
@@ -25,6 +25,9 @@ int main(void)
 	printf("Address: %p\n", ptr1);
 	// printf("Address: %p\n", &var);
 
+	// 64-bit system = 8 bytes; 32-bit system = 4 bytes:
+	printf("Size: %zu\n", sizeof(ptr1));
+
 	printf("\n");
 
 	// ------------------------------------------------------------
@@ -36,6 +39,9 @@ int main(void)
 	int *ptr2 = arr;
 	printf("Value: %d\n", *ptr2);
 	printf("Address: %p\n", ptr2);
+
+	// 64-bit system = 8 bytes; 32-bit system = 4 bytes:
+	printf("Size: %zu\n", sizeof(ptr2));
 
 	// Change pointer to the next element:
 	ptr2 += 1;

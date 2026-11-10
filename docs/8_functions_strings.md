@@ -69,7 +69,7 @@ int main(void)
 
 	// String functions: ↓
 	// Enough space for strcpy:
-	char str1[5 + 1] = "Hello";
+	char str1[6 + 1] = "Hello";
 	char str2[] = "World";
 
 	// Length 5:
@@ -91,7 +91,7 @@ int main(void)
 	}
 
 	// Copy (overwrite):
-	strcpy(str1, "!");
+	strcpy(str1, "Better");
 
 	// Other string functions:
 	// strcat(str1, str2);
