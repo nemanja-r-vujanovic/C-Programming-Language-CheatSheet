@@ -17,7 +17,7 @@ int main(void)
 	// Increment: i++ or ++i (i += 1)
 	// Decrement: i-- or --i (i -= 1)
 
-	char s[13 + 1] = {'\0',};
+	char s[13 + 1];
 	int i = -100;
 
 	// Ternary if_else:

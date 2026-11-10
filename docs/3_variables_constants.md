@@ -38,16 +38,16 @@ int main(void)
 
 	// 1 byte:
 	bool b = 1;
-	// 0 = false; not zero = true
+	// 0 = false; non-zero = true
 
 	// 4 bytes:
 	int i = -100;
-	// signed (by default) = negative and not negative values
+	// signed (by default) = negative and non-negative values
 	// int ascii = 'A';
 
 	// 4 bytes:
 	unsigned int ui = 100U;
-	// unsigned = not negative values only
+	// unsigned = non-negative values only
 
 	// 4 bytes:
 	float f = 99.99f;
@@ -61,6 +61,7 @@ int main(void)
 	// More data type modifiers:
 	// short
 	// long
+	// long long
 
 	// ------------------------------------------------------------
 
