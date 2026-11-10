@@ -57,6 +57,7 @@ int main(void)
 
 	// 7 bytes = 6 chars + '\0' char:
 	char s[] = "Hello!";
+	// char s[] = {'H', 'e', 'l', 'l', 'o', '!', '\0',};
 
 	// More data type modifiers:
 	// short
