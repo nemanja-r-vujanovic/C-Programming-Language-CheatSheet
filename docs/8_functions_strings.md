@@ -110,7 +110,7 @@ int main(void)
 	double d = 0.0;
 	char s[15 + 1];
 
-	// Convert string to integer:
+	// Convert string to int:
 	i = atoi("12345");
 
 	// Convert string to float:
@@ -191,11 +191,11 @@ void string_reversed(char s[])
 	size_t s_length = strlen(s);
 	char temp[s_length + 1];
 
-	unsigned int j = 0U;
+	unsigned int j = 0u;
 	for (int i = s_length - 1; i >= 0; i -= 1)
 	{
 		temp[j] = s[i];
-		j += 1U;
+		j += 1u;
 	}
 
 	temp[s_length] = '\0';

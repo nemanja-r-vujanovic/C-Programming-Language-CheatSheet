@@ -16,7 +16,7 @@
 #define NUMBER -1
 
 // Preprocessor constant unsigned int:
-#define UNSIGNED_NUMBER 10U
+#define UNSIGNED_NUMBER 10u
 
 // Preprocessor constant float:
 // #define PI 3.14159f
@@ -46,7 +46,7 @@ int main(void)
 	// int ascii = 'A';
 
 	// 4 bytes:
-	unsigned int ui = 100U;
+	unsigned int ui = 100u;
 	// unsigned = non-negative values only
 
 	// 4 bytes:
@@ -105,7 +105,7 @@ int main(void)
 	const char TYPE = '@';
 	const bool HARD = 0;
 	const int MAX = 1000;
-	const unsigned int MIN = 0U;
+	const unsigned int MIN = 0u;
 	// const float REAL = 8.3f;
 	const double REAL = 8.3;
 	const char WORD[] = "Test";
