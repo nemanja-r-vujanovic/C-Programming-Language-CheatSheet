@@ -10,7 +10,7 @@ int main(void)
 {
 	clock_t start = clock();
 
-	// Code to measure execution time:
+	// Code whose execution time is being measured:
 	for (int i = 1; i <= 100000; i += 1)
 	{
 		printf("%d ", i);

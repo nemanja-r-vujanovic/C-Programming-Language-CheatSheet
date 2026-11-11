@@ -40,13 +40,11 @@ int main(void)
 	// ------------------------------------------------------------
 
 	printf("Char input: ");
-	if (scanf("%c", &c) != 1)
+	if (scanf(" %c", &c) != 1)
 	{
 		printf("Invalid input!\n");
 		return 1;
 	}
-	// Skip leading whitespace:
-	// scanf(" %c", &c);
 
 	printf("Bool input: ");
 	if (scanf("%d", &ib) != 1)

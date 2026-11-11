@@ -1,6 +1,6 @@
 ## 8. Functions & Strings
 ```c
-// printf:
+// printf, snprintf:
 #include <stdio.h>
 
 // va_list, va_start, va_arg, va_end:
@@ -78,7 +78,7 @@ int main(void)
 	// Length 5:
 	printf("Length %zu\n", strlen(str2));
 
-	// Size 6:
+	// Size 7:
 	printf("Size %zu\n", sizeof(str1));
 
 	// Size 6:
@@ -121,6 +121,9 @@ int main(void)
 
 	// Convert non-string to string:
 	size_t s_length = snprintf(s, sizeof(s), "Hello world%c x%d", '!', 3);
+
+	// Calculate the required buffer size without storing the formatted string:
+	// size_t s_length = snprintf(NULL, 0, "Hello world%c x%d", '!', 3);
 
 	printf("%d\n", i);
 	printf("%f\n", f);
