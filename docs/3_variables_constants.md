@@ -48,6 +48,9 @@ int main(void)
 	// 4 bytes:
 	unsigned int ui = 100u;
 	// unsigned = non-negative values only
+	// Custom alias:
+	// typedef unsigned int uint;
+	// uint ui = 100u;
 
 	// 4 bytes:
 	float f = 99.99f;

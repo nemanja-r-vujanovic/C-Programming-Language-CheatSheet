@@ -23,13 +23,13 @@ int calculate_sum(int a, int b);
 int calculate_factorial(int n);
 void variadic_sum(int n, ...);
 void swap_numbers(int *a, int *b);
-void string_upper(char s[]);
-void string_lower(char s[]);
-void string_reversed(char s[]);
-void array_sorted(int d[], size_t d_size, char c);
-void print_array(int d[], size_t d_size);
-void convert_case(char s[], char c);
-void swap_array(int d[], int j);
+void string_upper(char *s);
+void string_lower(char *s);
+void string_reversed(const char *s);
+void array_sorted(int *d, size_t d_size, char c);
+void print_array(const int *d, size_t d_size);
+void convert_case(char *s, char c);
+void swap_array(int *d, int j);
 
 int main(void)
 {
@@ -179,17 +179,17 @@ void swap_numbers(int *a, int *b)
 	*b = temp;
 }
 
-void string_upper(char s[])
+void string_upper(char *s)
 {
 	convert_case(s, 'U');
 }
 
-void string_lower(char s[])
+void string_lower(char *s)
 {
 	convert_case(s, 'L');
 }
 
-void string_reversed(char s[])
+void string_reversed(const char *s)
 {
 	size_t s_length = strlen(s);
 	char temp[s_length + 1];
@@ -205,7 +205,7 @@ void string_reversed(char s[])
 	printf("%s\n", temp);
 }
 
-void array_sorted(int d[], size_t d_size, char c)
+void array_sorted(int *d, size_t d_size, char c)
 {
 	for (int i = 0; i <= d_size - 2; i += 1)
 	{
@@ -229,7 +229,7 @@ void array_sorted(int d[], size_t d_size, char c)
 	}
 }
 
-void print_array(int d[], size_t d_size)
+void print_array(const int *d, size_t d_size)
 {
 	for (int i = 0; i <= d_size - 1; i += 1)
 	{
@@ -239,7 +239,7 @@ void print_array(int d[], size_t d_size)
 	printf("\n");
 }
 
-void convert_case(char s[], char c)
+void convert_case(char *s, char c)
 {
 	size_t s_length = strlen(s);
 	char temp[s_length + 1];
@@ -275,7 +275,7 @@ void convert_case(char s[], char c)
 	// ...
 }
 
-void swap_array(int d[], int j)
+void swap_array(int *d, int j)
 {
 	int temp = d[j];
 	d[j] = d[j + 1];

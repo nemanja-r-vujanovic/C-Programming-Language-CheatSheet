@@ -101,6 +101,8 @@ int main(void)
 void say_hello(void)
 {
 	printf("Hello from myheader.h!\n");
+
+	// return;
 }
 
 // #error - Force compilation error:
