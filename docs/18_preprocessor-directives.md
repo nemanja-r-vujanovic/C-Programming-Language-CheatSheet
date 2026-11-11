@@ -6,6 +6,8 @@
 #ifndef MYHEADER_H
 #define MYHEADER_H
 
+#define PI 3.14159
+
 void say_hello(void);
 
 #endif

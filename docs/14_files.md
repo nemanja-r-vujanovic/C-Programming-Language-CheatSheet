@@ -44,7 +44,7 @@ int main(void)
 		return 1;
 	}
 
-	fprintf(fp, "This line is appended.\n");
+	fprintf(fp, "This line is appended\n");
 
 	if (fclose(fp) == EOF)
 	{

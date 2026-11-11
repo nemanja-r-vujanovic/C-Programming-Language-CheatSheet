@@ -6,7 +6,7 @@
 // time_t, time, struct tm, localtime:
 #include <time.h>
 
-// sleep (Linux, macOS):
+// sleep (POSIX - Linux, macOS):
 #include <unistd.h>
 
 // NULL:

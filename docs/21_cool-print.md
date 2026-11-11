@@ -3,7 +3,7 @@
 // printf:
 #include <stdio.h>
 
-// sleep (Linux, macOS):
+// sleep (POSIX - Linux, macOS):
 #include <unistd.h>
 
 // Preprocessor constant strings:

@@ -3,7 +3,7 @@
 // printf:
 #include <stdio.h>
 
-// pthread_t, pthread_create, pthread_join:
+// pthread_t, pthread_create, pthread_join (POSIX - Linux, macOS):
 #include <pthread.h>
 
 // NULL:

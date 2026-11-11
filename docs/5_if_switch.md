@@ -31,42 +31,42 @@ int main(void)
 	// if:
 	if (i <= -1)
 	{
-		printf("Negative.\n");
+		printf("Negative\n");
 	}
 
 	// if_else:
 	if (i <= -1)
 	{
-		printf("Negative.\n");
+		printf("Negative\n");
 	}
 	else
 	{
-		printf("Not negative.\n");
+		printf("Not negative\n");
 	}
 
 	// if_else-if_else:
 	if (i <= -1)
 	{
-		printf("Negative.\n");
+		printf("Negative\n");
 	}
 	else if (i == 0)
 	{
-		printf("Neutral.\n");
+		printf("Neutral\n");
 	}
 	else if (i >= 1)
 	{
-		printf("Positive.\n");
+		printf("Positive\n");
 	}
 
 	// Nested if:
 	int age = 20;
 	if (age >= 18)
 	{
-		printf("You are an adult.\n");
+		printf("You are an adult\n");
 
 		if (age >= 21)
 		{
-			printf("You can enter the club.\n");
+			printf("You can enter the club\n");
 		}
 	}
 

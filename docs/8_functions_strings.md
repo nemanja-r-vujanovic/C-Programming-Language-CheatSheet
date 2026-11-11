@@ -120,16 +120,16 @@ int main(void)
 	d = strtod("12345", NULL);
 
 	// Convert non-string to string:
-	size_t s_length = snprintf(s, sizeof(s), "Hello world%c x%d", '!', 3);
+	int s_length = snprintf(s, sizeof(s), "Hello world%c x%d", '!', 3);
 
 	// Calculate the required buffer size without storing the formatted string:
-	// size_t s_length = snprintf(NULL, 0, "Hello world%c x%d", '!', 3);
+	// int s_length = snprintf(NULL, 0, "Hello world%c x%d", '!', 3);
 
 	printf("%d\n", i);
 	printf("%f\n", f);
 	printf("%lf\n", d);
 	printf("%s\n", s);
-	printf("%zu\n", s_length);
+	printf("%d\n", s_length);
 
 	return 0;
 }

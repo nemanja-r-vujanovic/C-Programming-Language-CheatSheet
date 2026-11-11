@@ -18,12 +18,12 @@ int main(void)
 	}
 
 	// label:
-		// printf("Jump.\n");
+		// printf("Jump\n");
 
 	// do-while:
 	// do
 	// {
-		// printf("Done.\n");
+		// printf("Done\n");
 	// }
 	// while (0);
 
