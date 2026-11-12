@@ -35,7 +35,7 @@ int main(void)
 	// Pointers with arrays: ↓
 	int arr[] = {1, 2, 3, 4, 5,};
 
-	// ptr2 points to arr[0]:
+	// ptr2 points to arr[0u]:
 	int *ptr2 = arr;
 	printf("Value: %d\n", *ptr2);
 	printf("Address: %p\n", ptr2);

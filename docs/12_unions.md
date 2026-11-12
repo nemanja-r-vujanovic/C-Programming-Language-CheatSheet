@@ -10,7 +10,7 @@ typedef union Data
 {
 	int i;
 	double d;
-	char s[6 + 1];
+	char s[6u + 1u];
 } Data;
 
 int main(void)

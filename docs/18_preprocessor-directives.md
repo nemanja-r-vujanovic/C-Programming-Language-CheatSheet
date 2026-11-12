@@ -31,23 +31,23 @@ void say_hello(void);
 
 // #ifdef - Check if DEBUG is defined:
 #ifdef DEBUG
-	#define MESSAGE "Debug mode is ON."
+	#define MESSAGE "Debug mode is ON"
 #else
-	#define MESSAGE "Debug mode is OFF."
+	#define MESSAGE "Debug mode is OFF"
 #endif
 
 // #ifndef - Define BUFFER_SIZE if not defined:
 #ifndef BUFFER_SIZE
-	#define BUFFER_SIZE 1024
+	#define BUFFER_SIZE 1024u
 #endif
 
 // #if, #elif, #else, #endif:
-#if BUFFER_SIZE >= 1024
-	#define STATUS "Large buffer."
-#elif BUFFER_SIZE >= 512
-	#define STATUS "Medium buffer."
+#if BUFFER_SIZE >= 1024u
+	#define STATUS "Large buffer"
+#elif BUFFER_SIZE >= 512u
+	#define STATUS "Medium buffer"
 #else
-	#define STATUS "Small buffer."
+	#define STATUS "Small buffer"
 #endif
 
 int main(void)
@@ -62,7 +62,7 @@ int main(void)
 	int a = 5;
 	int b = 10;
 
-	// Never use i += 1 and i -= 1 in macros:
+	// Never use side effects (i += 1 and i -= 1) in macros:
 	printf("Square: %d\n", SQUARE(a));
 	printf("Maximum: %d\n", MAX(a, b));
 
@@ -79,7 +79,7 @@ int main(void)
 
 	// Conditional compilation:
 	printf("Message: %s\n", MESSAGE);
-	printf("Buffer: %d\n", BUFFER_SIZE);
+	printf("Buffer: %u\n", BUFFER_SIZE);
 	printf("Status: %s\n", STATUS);
 
 	printf("\n");
@@ -103,8 +103,6 @@ int main(void)
 void say_hello(void)
 {
 	printf("Hello from myheader.h!\n");
-
-	// return;
 }
 
 // #error - Force compilation error:

@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	char days[7][9 + 1] =
+	char days[7u][9u + 1u] =
 	{
 		"Sunday",
 		"Monday",
@@ -29,7 +29,7 @@ int main(void)
 	{
 		time_t now = time(NULL);
 
-		if (now == (time_t) - 1)
+		if (now == (time_t) -1)
 		{
 			perror("Time error!");
 			return 1;
@@ -60,7 +60,7 @@ int main(void)
 
 		// ------------------------------------------------------------
 
-		// Sunday, 01.01.2026. - 09:30:00
+		// Thursday, 01.01.2026. - 09:30:00
 		printf("%s, %02d.%02d.%04d. - %02d:%02d:%02d\n",
 				days[day_of_week], day, month, year,
 				hour, minute, second);

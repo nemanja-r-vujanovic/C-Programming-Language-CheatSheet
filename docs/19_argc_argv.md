@@ -5,18 +5,17 @@
 
 int main(int argc, char **argv)
 {
-	printf("Program: %s\n", argv[0]);
-
-	if (argc >= 2)
+	if (argc > 1)
 	{
-		for (int i = 1; i <= argc - 1; i += 1)
+		for (int i = 1; i < argc; i += 1)
 		{
 			printf("Argument %d: %s\n", i, argv[i]);
 		}
 	}
-	else if (argc <= 1)
+
+	else if (argc < 2)
 	{
-		printf("Usage: %s <argument>\n", argv[0]);
+		printf("Usage: %s <argument>\n", (argc > 0) ? argv[0u] : "program_c");
 	}
 
 	return 0;

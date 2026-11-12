@@ -1,10 +1,10 @@
 ## 1. Comments & Basics
 ```c
-// Single-line comment.
+// Single-line comment
 
 /*
 Multi-line
-comment.
+comment
 */
 
 // printf:

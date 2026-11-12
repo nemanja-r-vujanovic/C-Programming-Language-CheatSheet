@@ -8,20 +8,20 @@
 
 int main(void)
 {
-	// Assignment: =, +=, -=, *=, /=, %=, &=, |=, ^=, >>=, <<=
+	// Assignment: =, +=, -=, *=, /=, %=, |=, &=, ^=, >>=, <<=
 	// Arithmetic: +, -, *, /, %
-	// Bitwise: &, |, ^, >>, <<, ~
+	// Bitwise: |, &, ^, >>, <<, ~
 	// Comparison: ==, !=, >, <, >=, <=
-	// Logical: !, &&, ||
+	// Logical: !, ||, &&
 	// Ternary: ?, :
 	// Increment: i++ or ++i (i += 1)
 	// Decrement: i-- or --i (i -= 1)
 
-	char s[13 + 1];
+	char s[13u + 1u];
 	int i = -100;
 
-	// Ternary if_else:
-	strcpy(s, (i <= -1) ? "Negative." : "Not negative.");
+	// Ternary (if_else):
+	strcpy(s, (i < 0) ? "Negative" : "Not negative");
 	printf("%s\n", s);
 
 	printf("\n");
@@ -29,13 +29,13 @@ int main(void)
 	// ------------------------------------------------------------
 
 	// if:
-	if (i <= -1)
+	if (i < 0)
 	{
 		printf("Negative\n");
 	}
 
 	// if_else:
-	if (i <= -1)
+	if (i < 0)
 	{
 		printf("Negative\n");
 	}
@@ -44,8 +44,8 @@ int main(void)
 		printf("Not negative\n");
 	}
 
-	// if_else-if_else:
-	if (i <= -1)
+	// if_else-if:
+	if (i < 0)
 	{
 		printf("Negative\n");
 	}
@@ -53,7 +53,7 @@ int main(void)
 	{
 		printf("Neutral\n");
 	}
-	else if (i >= 1)
+	else if (i > 0)
 	{
 		printf("Positive\n");
 	}

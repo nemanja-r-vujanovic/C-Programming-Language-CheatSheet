@@ -1,6 +1,6 @@
 ## 14. Files
 ```c
-// printf, FILE, fopen, fclose, fprintf, fgets, EOF, remove:
+// printf, FILE, fopen, fclose, fprintf, fgets, ferror, EOF, remove:
 #include <stdio.h>
 
 // NULL:
@@ -12,7 +12,7 @@
 int main(void)
 {
 	FILE *fp;
-	char text[1024 + 1];
+	char text[1024u + 1u];
 
 	// ------------------------------------------------------------
 
@@ -25,7 +25,12 @@ int main(void)
 		return 1;
 	}
 
-	fprintf(fp, "Hello world!\n");
+	if (fprintf(fp, "Hello world!\n") < 0)
+	{
+		printf("Error writing to file!\n");
+		fclose(fp);
+		return 1;
+	}
 
 	if (fclose(fp) == EOF)
 	{
@@ -44,7 +49,12 @@ int main(void)
 		return 1;
 	}
 
-	fprintf(fp, "This line is appended\n");
+	if (fprintf(fp, "This line is appended\n") < 0)
+	{
+		printf("Error appending to file!\n");
+		fclose(fp);
+		return 1;
+	}
 
 	if (fclose(fp) == EOF)
 	{
@@ -66,6 +76,13 @@ int main(void)
 	while (fgets(text, sizeof(text), fp) != NULL)
 	{
 		printf("%s", text);
+	}
+
+	if (ferror(fp))
+	{
+		printf("Error reading file!\n");
+		fclose(fp);
+		return 1;
 	}
 
 	if (fclose(fp) == EOF)

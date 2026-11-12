@@ -9,14 +9,14 @@
 // Structure:
 typedef struct Student
 {
-	char name[8 + 1];
+	char name[8u + 1u];
 	int number;
 } Student;
 
 // Nested structure:
 typedef struct Classroom
 {
-	char name[13 + 1];
+	char name[13u + 1u];
 	Student student;
 } Classroom;
 
@@ -40,9 +40,9 @@ int main(void)
 	// Array of structures:
 	Student students[] = {s1, s2,};
 
-	size_t students_size = sizeof(students) / sizeof(students[0]);
+	size_t students_size = sizeof(students) / sizeof(students[0u]);
 
-	for (int i = 0; i <= students_size - 1; i += 1)
+	for (size_t i = 0u; i < students_size; i += 1u)
 	{
 		printf("%s %d\n", students[i].name, students[i].number);
 	}

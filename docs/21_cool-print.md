@@ -1,15 +1,10 @@
 ## 21. Cool Print
 ```c
-// printf:
+// printf, fflush, stdout:
 #include <stdio.h>
 
 // sleep (POSIX - Linux, macOS):
 #include <unistd.h>
-
-// Preprocessor constant strings:
-#define RESET "\x1b[0m"
-#define CLEAR "\x1b[2J"
-#define HOME  "\x1b[H"
 
 void screen_controls(void)
 {
@@ -55,6 +50,9 @@ void screen_controls(void)
 
 	// Save cursor position:
 	printf("\x1b[s");
+
+	// Move cursor:
+	printf("\x1b[5;10H");
 
 	// Restore cursor position:
 	printf("\x1b[u");
@@ -167,18 +165,22 @@ void terminal_controls(void)
 
 	// Hide cursor:
 	printf("\x1b[?25l");
+	fflush(stdout);
 	sleep(1);
 
 	// Show cursor:
 	printf("\x1b[?25h");
+	fflush(stdout);
 
 	// Save cursor position:
 	printf("\x1b[s");
 	printf("Cursor position saved\n");
+	fflush(stdout);
 	sleep(1);
 
 	// Restore cursor position:
 	printf("\x1b[u");
+	fflush(stdout);
 
 	// Request cursor position (terminal response required):
 	// printf("\x1b[6n");
@@ -194,6 +196,10 @@ int main(void)
 {
 	// Clear terminal and move to top-left:
 	printf("\x1b[2J\x1b[H");
+	fflush(stdout);
+
+	// screen_controls();
+	// fflush(stdout);
 
 	// Header:
 	printf("\x1b[1;36m");
@@ -201,8 +207,6 @@ int main(void)
 	printf("      ANSI ESCAPE SEQUENCE DEMO      \n");
 	printf("------------------------------------------------------------\n");
 	printf("\x1b[0m");
-
-	screen_controls();
 
 	// Display all demonstrations:
 	foreground_colors();
@@ -220,6 +224,7 @@ int main(void)
 	printf("      DEMONSTRATION COMPLETE      \n");
 	printf("------------------------------------------------------------\n");
 	printf("\x1b[0m");
+	fflush(stdout);
 
 	return 0;
 }

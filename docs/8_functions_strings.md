@@ -19,9 +19,9 @@
 #include <stdlib.h>
 
 // Function declaration:
-int calculate_sum(int a, int b);
-int calculate_factorial(int n);
-void variadic_sum(int n, ...);
+double calculate_sum(double a, double b);
+unsigned int calculate_factorial(unsigned int n);
+void variadic_sum(size_t n, ...);
 void swap_numbers(int *a, int *b);
 void string_upper(char *s);
 void string_lower(char *s);
@@ -29,19 +29,19 @@ void string_reversed(const char *s);
 void array_sorted(int *d, size_t d_size, char c);
 void print_array(const int *d, size_t d_size);
 void convert_case(char *s, char c);
-void swap_array(int *d, int j);
+void swap_array(int *d, size_t j);
 
 int main(void)
 {
 	// Function call: ↓
-	int sum = calculate_sum(5, 10);
-	printf("%d\n", sum);
+	double sum = calculate_sum(3.3, 3.4);
+	printf("%lf\n", sum);
 
-	int fac = calculate_factorial(10);
-	printf("%d\n", fac);
+	unsigned int fac = calculate_factorial(5u);
+	printf("%u\n", fac);
 
-	variadic_sum(3, 1.5, 2.5, 6.5);
-	variadic_sum(4, 1.5, 2.5, 6.5, 9.5);
+	variadic_sum(3u, 1.5, 2.5, 6.5);
+	variadic_sum(4u, 1.5, 2.5, 6.5, 9.5);
 
 	int x = 10;
 	int y = 20;
@@ -55,7 +55,7 @@ int main(void)
 	string_reversed(name);
 
 	int array[] = {2, 1, 4, 3, 6, 5, 8, 7, 10, 9,};
-	size_t array_size = sizeof(array) / sizeof(array[0]);
+	size_t array_size = sizeof(array) / sizeof(array[0u]);
 
 	array_sorted(array, array_size, 'A');
 	print_array(array, array_size);
@@ -68,33 +68,37 @@ int main(void)
 	// ------------------------------------------------------------
 
 	// String functions: ↓
-	// Enough space for strcpy:
-	char str1[6 + 1] = "Hello";
-	char str2[] = "World";
+	// Enough space for strcpy() and strcat():
+	char str1[7u + 1u] = "Hello";
+	char str2[] = "!";
 
 	// Length 5:
 	printf("Length %zu\n", strlen(str1));
 
-	// Length 5:
+	// Length 1:
 	printf("Length %zu\n", strlen(str2));
 
-	// Size 7:
+	// Size 8:
 	printf("Size %zu\n", sizeof(str1));
 
-	// Size 6:
+	// Size 2:
 	printf("Size %zu\n", sizeof(str2));
 
 	// Compare:
 	if (strcmp(str1, str2) == 0)
 	{
-		printf("Equal.");
+		printf("Equal");
 	}
 
 	// Copy (overwrite):
 	strcpy(str1, "Better");
 
+	// Concatenate (append str2 to the end of str1):
+	strcat(str1, str2);
+
+	printf("%s\n", str1);
+
 	// Other string functions:
-	// strcat(str1, str2);
 	// strchr(str, 'A');
 	// strrchr(str, 'A');
 	// strstr(str, "sub");
@@ -108,7 +112,7 @@ int main(void)
 	int i = 0;
 	float f = 0.0f;
 	double d = 0.0;
-	char s[15 + 1];
+	char s[15u + 1u];
 
 	// Convert string to int:
 	i = atoi("12345");
@@ -122,8 +126,19 @@ int main(void)
 	// Convert non-string to string:
 	int s_length = snprintf(s, sizeof(s), "Hello world%c x%d", '!', 3);
 
-	// Calculate the required buffer size without storing the formatted string:
+	// Calculate the required formatted string length without storing the string, excluding the '\0':
 	// int s_length = snprintf(NULL, 0, "Hello world%c x%d", '!', 3);
+
+	if (s_length < 0)
+	{
+		printf("Formatting error!\n");
+		return 1;
+	}
+	else if ((size_t) s_length >= sizeof(s))
+	{
+		printf("Output was truncated!\n");
+		return 1;
+	}
 
 	printf("%d\n", i);
 	printf("%f\n", f);
@@ -137,31 +152,31 @@ int main(void)
 // ------------------------------------------------------------
 
 // Function definition: ↓
-int calculate_sum(int a, int b)
+double calculate_sum(double a, double b)
 {
 	return a + b;
 }
 
-// Recursive function:
-int calculate_factorial(int n)
+// Recursive function (result wraps around on unsigned int overflow):
+unsigned int calculate_factorial(unsigned int n)
 {
-	if (n <= 1)
+	if (n < 2u)
 	{
-		return 1;
+		return 1u;
 	}
 
-	return n * calculate_factorial(n - 1);
+	return n * calculate_factorial(n - 1u);
 }
 
-// Variadic function:
-void variadic_sum(int n, ...)
+// Variadic function (double parameters in this example):
+void variadic_sum(size_t n, ...)
 {
 	va_list args;
 	va_start(args, n);
 
 	double sum = 0.0;
 
-	for (int i = 0; i <= n - 1; i += 1)
+	for (size_t i = 0; i < n; i += 1u)
 	{
 		double d = va_arg(args, double);
 		sum += d;
@@ -174,6 +189,11 @@ void variadic_sum(int n, ...)
 
 void swap_numbers(int *a, int *b)
 {
+	if (a == NULL || b == NULL)
+	{
+		return;
+	}
+
 	int temp = *a;
 	*a = *b;
 	*b = temp;
@@ -191,14 +211,17 @@ void string_lower(char *s)
 
 void string_reversed(const char *s)
 {
-	size_t s_length = strlen(s);
-	char temp[s_length + 1];
-
-	unsigned int j = 0u;
-	for (int i = s_length - 1; i >= 0; i -= 1)
+	if (s == NULL)
 	{
-		temp[j] = s[i];
-		j += 1u;
+		return;
+	}
+
+	size_t s_length = strlen(s);
+	char temp[s_length + 1u];
+
+	for (size_t i = 0; i < s_length; i += 1u)
+	{
+		temp[i] = s[s_length - 1u - i];
 	}
 
 	temp[s_length] = '\0';
@@ -207,20 +230,31 @@ void string_reversed(const char *s)
 
 void array_sorted(int *d, size_t d_size, char c)
 {
-	for (int i = 0; i <= d_size - 2; i += 1)
+	if (d == NULL || d_size < 2u)
 	{
-		for (int j = 0; j <= d_size - 2 - i; j += 1)
+		return;
+	}
+
+	if (c != 'A' && c != 'D')
+	{
+		printf("Invalid sorting option (use 'A' or 'D')!\n");
+		return;
+	}
+
+	for (size_t i = 0u; i < d_size - 1u; i += 1u)
+	{
+		for (size_t j = 0u; j < d_size - 1u - i; j += 1u)
 		{
 			if (c == 'A')
 			{
-				if (d[j] > d[j + 1])
+				if (d[j] > d[j + 1u])
 				{
 					swap_array(d, j);
 				}
 			}
 			else if (c == 'D')
 			{
-				if (d[j] < d[j + 1])
+				if (d[j] < d[j + 1u])
 				{
 					swap_array(d, j);
 				}
@@ -231,7 +265,12 @@ void array_sorted(int *d, size_t d_size, char c)
 
 void print_array(const int *d, size_t d_size)
 {
-	for (int i = 0; i <= d_size - 1; i += 1)
+	if (d == NULL || d_size == 0u)
+	{
+		return;
+	}
+
+	for (size_t i = 0u; i < d_size; i += 1u)
 	{
 		printf("%d ", d[i]);
 	}
@@ -241,18 +280,29 @@ void print_array(const int *d, size_t d_size)
 
 void convert_case(char *s, char c)
 {
-	size_t s_length = strlen(s);
-	char temp[s_length + 1];
+	if (s == NULL)
+	{
+		return;
+	}
 
-	for (int i = 0; i <= s_length - 1; i += 1)
+	if (c != 'U' && c != 'L')
+	{
+		printf("Invalid conversion option (use 'U' or 'L')!\n");
+		return;
+	}
+
+	size_t s_length = strlen(s);
+	char temp[s_length + 1u];
+
+	for (size_t i = 0u; i < s_length; i += 1u)
 	{
 		if (c == 'U')
 		{
-			temp[i] = toupper(s[i]);
+			temp[i] = (char) toupper((unsigned char) s[i]);
 		}
 		else if (c == 'L')
 		{
-			temp[i] = tolower(s[i]);
+			temp[i] = (char) tolower((unsigned char) s[i]);
 		}
 	}
 
@@ -275,10 +325,10 @@ void convert_case(char *s, char c)
 	// ...
 }
 
-void swap_array(int *d, int j)
+void swap_array(int *d, size_t j)
 {
 	int temp = d[j];
-	d[j] = d[j + 1];
-	d[j + 1] = temp;
+	d[j] = d[j + 1u];
+	d[j + 1u] = temp;
 }
 ```
