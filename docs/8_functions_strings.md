@@ -176,7 +176,7 @@ void variadic_sum(size_t n, ...)
 
 	double sum = 0.0;
 
-	for (size_t i = 0; i < n; i += 1u)
+	for (size_t i = 0u; i < n; i += 1u)
 	{
 		double d = va_arg(args, double);
 		sum += d;
@@ -219,7 +219,7 @@ void string_reversed(const char *s)
 	size_t s_length = strlen(s);
 	char temp[s_length + 1u];
 
-	for (size_t i = 0; i < s_length; i += 1u)
+	for (size_t i = 0u; i < s_length; i += 1u)
 	{
 		temp[i] = s[s_length - 1u - i];
 	}
