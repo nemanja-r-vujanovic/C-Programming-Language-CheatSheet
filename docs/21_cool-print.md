@@ -166,7 +166,7 @@ void terminal_controls(void)
 	// Hide cursor:
 	printf("\x1b[?25l");
 	fflush(stdout);
-	sleep(1);
+	sleep(1u);
 
 	// Show cursor:
 	printf("\x1b[?25h");
@@ -176,7 +176,7 @@ void terminal_controls(void)
 	printf("\x1b[s");
 	printf("Cursor position saved\n");
 	fflush(stdout);
-	sleep(1);
+	sleep(1u);
 
 	// Restore cursor position:
 	printf("\x1b[u");

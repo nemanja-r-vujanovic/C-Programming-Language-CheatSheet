@@ -14,8 +14,8 @@ int main(void)
 	// Comparison: ==, !=, >, <, >=, <=
 	// Logical: !, ||, &&
 	// Ternary: ?, :
-	// Increment: i++ or ++i (i += 1)
-	// Decrement: i-- or --i (i -= 1)
+	// Increment: ++i or i++ (i += 1)
+	// Decrement: --i or i-- (i -= 1)
 
 	char s[13u + 1u];
 	int i = -100;

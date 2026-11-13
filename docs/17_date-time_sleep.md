@@ -66,7 +66,7 @@ int main(void)
 				hour, minute, second);
 
 		// Sleep 1 second:
-		sleep(1);
+		sleep(1u);
 	}
 
 	return 0;
