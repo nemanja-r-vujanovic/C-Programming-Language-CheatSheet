@@ -56,6 +56,12 @@ int main(void)
 	char element = *(ptr2 + 1);
 	printf("%c\n", element);
 
+	// Variations:                     // Modify *ptr2:   // Modify ptr2:
+	// char *ptr2 = str;               // Yes             // Yes
+	// const char *ptr2 = str;         // No              // Yes
+	// char *const ptr2 = str;         // Yes             // No
+	// const char *const ptr2 = str;   // No              // No
+
 	printf("\n");
 
 	// ------------------------------------------------------------
