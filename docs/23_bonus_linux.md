@@ -8,7 +8,15 @@
 
 int main(void)
 {
-	if (system("cd / && ls") != 0)
+	char commands[] =
+		"bash -c '"
+			"echo \"Hello world!\" &&\n"
+			"cd \"/\" &&\n"
+			"pwd &&\n"
+			"ls \n"
+		"'";
+
+	if (system(commands) != 0)
 	{
 		printf("System error!\n");
 		return 1;
