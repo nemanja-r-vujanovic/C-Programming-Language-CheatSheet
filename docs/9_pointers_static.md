@@ -26,34 +26,35 @@ int main(void)
 	// printf("Address: %p\n", &var);
 
 	// 64-bit system = 8 bytes; 32-bit system = 4 bytes:
-	printf("Size: %zu\n", sizeof(ptr1));
+	printf("Size of pointer: %zu\n", sizeof(ptr1));
 
 	printf("\n");
 
 	// ------------------------------------------------------------
 
 	// Pointers with arrays: ↓
-	int arr[] = {1, 2, 3, 4, 5,};
+	char str[] = {'B', 'y', 'e', '!', '\0',};
 
-	// ptr2 points to arr[0u]:
-	int *ptr2 = arr;
-	printf("Value: %d\n", *ptr2);
+	// ptr2 points to str[0u]:
+	char *ptr2 = str;
+	printf("Value: %c\n", *ptr2);
 	printf("Address: %p\n", ptr2);
+	printf("String: %s\n", ptr2);
 
 	// 64-bit system = 8 bytes; 32-bit system = 4 bytes:
-	printf("Size: %zu\n", sizeof(ptr2));
+	printf("Size of pointer: %zu\n", sizeof(ptr2));
 
 	// Change pointer to the next element:
 	ptr2 += 1;
-	printf("%d\n", *ptr2);
+	printf("%c\n", *ptr2);
 
 	// Change pointer to the previous element:
 	ptr2 -= 1;
-	printf("%d\n", *ptr2);
+	printf("%c\n", *ptr2);
 
 	// Access the next element without changing the pointer:
-	int element = *(ptr2 + 1);
-	printf("%d\n", element);
+	char element = *(ptr2 + 1);
+	printf("%c\n", element);
 
 	printf("\n");
 
