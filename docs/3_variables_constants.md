@@ -76,11 +76,6 @@ int main(void)
 	printf("Int: %-9d\n", i);
 	printf("Global variable: %d\n", global_number);
 	printf("Unsigned int: %u\n", ui);
-	printf("Octal: %o\n", ui);
-	printf("Octal: \101\n");
-	printf("Hexadecimal lowercase: %x\n", ui);
-	printf("Hexadecimal uppercase: %X\n", ui);
-	printf("Hexadecimal: \x41\n");
 	printf("Float: %f\n", f);
 	printf("Float: %.2f\n", f);
 	printf("Double: %lf\n", d);
@@ -120,6 +115,8 @@ int main(void)
 	// printf("Constant float: %f\n", REAL);
 	printf("Constant double: %lf\n", REAL);
 	printf("Constant string: %s\n", WORD);
+
+	printf("\n");
 
 	printf("Preprocessor constant char: %c\n", LETTER);
 	printf("Preprocessor constant bool: %d\n", ACTIVE);
