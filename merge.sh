@@ -1,14 +1,13 @@
 #!/bin/bash
 
 str="# My CheatSheet: C Programming Language"
-gen="cheatsheet.docx"
-doc="docs"
+out="README.md"
+dir="docs"
 
-echo "$str" > "$gen"
+echo "$str" > "$out"
 
-for file in $(ls "$doc/" | sort -n); do
-	con=$(cat "$doc/$file")
+for fil in $(ls "$dir/" | sort -n); do
+	hea=$(cat "$dir/$fil" | head -n 1)
 
-	echo >> "$gen"
-	echo "$con" >> "$gen"
+	echo -e "\n[$hea]($dir/$fil)" >> "$out"
 done
